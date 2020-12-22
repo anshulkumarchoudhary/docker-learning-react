@@ -12,5 +12,11 @@ before_install:
 script: 
   - docker run -e CI=true anshulkumarchoudhary/docker-learning-react npm run test
 
-
 # Tell travis how to deploy code to AWS
+deploy:
+  provider: elasticebeanstalk
+  region: "us-east-2"
+  app: "docker-learning-react"
+  env: "DockerLearningReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-555253957993"
+  bucket_path: "docker-learning-react"
